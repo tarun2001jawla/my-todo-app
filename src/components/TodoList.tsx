@@ -1,6 +1,7 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 import { List } from "@chakra-ui/react";
+import '../App.css'
 
 interface Todo {
   task: string;
@@ -15,7 +16,7 @@ interface props {
 
 function TodoList({ todos, deleteTodo, markComplete }: props): JSX.Element {
   return (
-    <List styleType="none">
+    <List styleType="none" className="todo-list">
       {todos.map((todo, index) => (
         <TodoItem
           key={index}
