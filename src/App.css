@@ -36,7 +36,7 @@
   width: calc(100% - 120px);
   margin-bottom: 10px;
   background-color: #F3F3F3;
-  color: #B5B5B5;
+  color: #EA5959
 
 }
 
@@ -51,14 +51,15 @@
   border-bottom: 1px solid #ced4da;
 }
 
-.todo-item:last-child {
-  border-bottom: none;
-}
+
 
 .todo-task {
   flex-grow: 1;
   margin-left: 10px;
+  
+  
 }
+
 
 .todo-delete-button {
   margin-left: 10px;
