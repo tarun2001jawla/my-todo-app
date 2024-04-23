@@ -1,5 +1,6 @@
 import React from "react";
 import { List, ListItem, Checkbox, Button } from '@chakra-ui/react';
+import '../App.css'
 
 interface Todo {
   task: string;
@@ -16,8 +17,8 @@ interface props {
 const TodoItem = ({index,todo,deleteTodo,markComplete}:props):JSX.Element=>{
     return(
         <List>
-        <ListItem>
-            <Checkbox
+        <ListItem className="todo-item ">
+            <Checkbox className="todo-task"
             isChecked = {todo.completed}
             onChange={()=>markComplete(index)}
             />
@@ -25,7 +26,7 @@ const TodoItem = ({index,todo,deleteTodo,markComplete}:props):JSX.Element=>{
                 {todo.task}
 
             </span>
-            <Button onClick={() => deleteTodo(index)}>Delete</Button>
+            <Button className="todo-delete-button" colorScheme='red' size='sm' onClick={() => deleteTodo(index)}>Delete</Button>
         </ListItem>
         </List>
     )

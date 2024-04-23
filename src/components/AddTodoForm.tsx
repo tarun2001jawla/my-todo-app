@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { FormControl, Input, Button } from '@chakra-ui/react';
+import '../App.css'
 
 interface props{
     addTodo : (task:string)=>void;
@@ -21,15 +22,15 @@ function AddTodoForm({addTodo}:props):JSX.Element{
     return(
     <form onSubmit={handleSubmit}>
         <FormControl>
-            <Input
+            <Input 
             type='text'
             value={task}
             onChange={(e)=>setTask(e.target.value)}
             placeholder='Add a new task'
-            className='input'
+            className='todo-input'
 
             />
-            <Button type='submit'>Add Task</Button>
+            <Button className='todo-add-button' type='submit' colorScheme='green' size='lg'>Add Task</Button>
         </FormControl>
 
     </form>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../assets/To-Do-Logo 1.png'
-import './TodoLogo.css';
+import '../App.css'
 
 const TodoLogo : React.FC =()=>{
     return(
