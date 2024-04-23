@@ -1,6 +1,6 @@
 import "./App.css";
 
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { Box, Container,Heading} from "@chakra-ui/react"; // Import Chakra UI components
 import "./App.css";
 import TodoList from "./components/TodoList";
@@ -12,20 +12,27 @@ interface Todo {
 }
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const addTodo = (task: string): void => {
-    setTodos([...todos, { task, completed: false }]);
-  };
+  const todoItems = JSON.parse (localStorage.getItem('todo') || '[]');
+  console.log(todoItems)
+  const [todo, setTodos] = useState<Todo[]>(todoItems);
 
+  useEffect(()=>{
+    localStorage.setItem('todo',JSON.stringify(todo))
+   
+  },[todo])
+  const addTodo = (task: string): void => {
+    setTodos([...todo, { task, completed: false }]);
+  };
+  console.log(localStorage);
   const deleteTodo = (index: number): void => {
-    setTodos(todos.filter((todo, i) => i !== index));
+    setTodos(todo.filter((todo, i) => i !== index));
   };
 
   const markComplete = (index:number):void=>{
-          const upddatedTodos = [...todos];
-          upddatedTodos[index].completed = !upddatedTodos[index].completed;
+          const updatedTodos = [...todo];
+          updatedTodos[index].completed = !updatedTodos[index].completed;
 
-          setTodos(upddatedTodos);
+          setTodos(updatedTodos);
           }
 
   return (
@@ -37,7 +44,7 @@ function App() {
           Todo App
         </Heading>
         <AddTodoForm addTodo={addTodo} />
-        <TodoList todos={todos} deleteTodo={deleteTodo} markComplete={markComplete} />
+        <TodoList todos={todo} deleteTodo={deleteTodo} markComplete={markComplete} />
       </Box>
     </Container>
   );

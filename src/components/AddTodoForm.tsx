@@ -21,7 +21,7 @@ function AddTodoForm({addTodo}:props):JSX.Element{
             }
     return(
     <form onSubmit={handleSubmit}>
-        <FormControl>
+        <FormControl className='form'>
             <Input 
             type='text'
             value={task}

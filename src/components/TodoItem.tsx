@@ -19,8 +19,11 @@ const TodoItem = ({index,todo,deleteTodo,markComplete}:props):JSX.Element=>{
         <List>
         <ListItem className="todo-item ">
             <Checkbox className="todo-task"
+            colorScheme='green' 
             isChecked = {todo.completed}
             onChange={()=>markComplete(index)}
+            
+            
             />
             <span style={{textDecoration:todo.completed ? 'line-through' : 'none'}}>
                 {todo.task}
